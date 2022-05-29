@@ -1,0 +1,43 @@
+\hypertarget{_r_r_8h_source}{}\doxysection{RR.\+h}
+\label{_r_r_8h_source}\index{Demo1/RR.h@{Demo1/RR.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// 16-\/bit timer/counter set up}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SYSTEM\_REG\_A TCCR3A}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define SYSTEM\_REG\_B TCCR3B}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TCNT4\_COUNTER TCNT4}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define PRE\_SCALE OCR3A}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define LED\_DDR DDRL}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define LED\_PORT PORTL}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define SPEAKER\_DDRE DDRE}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define SPEAKER\_PORTE PORTE}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{comment}{// durations for LED, tones, sleep, and time counting.}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define LED\_DURATION 250}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define TONE\_DURATION 200}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define SLEEP\_DURATION 4000}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define TIME\_COUNTING (NTONE * TONE\_DURATION) + SLEEP\_DURATION}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{comment}{// frequencies for tones}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define NOTE\_D4 293}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define NOTE\_E4 329}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define NOTE\_C4 261}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define NOTE\_C3 130}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NOTE\_G3 196}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define NOTE\_R 0}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define NTONE 13}}
+\DoxyCodeLine{25 \textcolor{keywordtype}{int} melody[] = \{ NOTE\_D4, NOTE\_R, NOTE\_E4, NOTE\_R, NOTE\_C4, NOTE\_R, NOTE\_C3,}
+\DoxyCodeLine{26                  NOTE\_R, NOTE\_G3, NOTE\_G3, NOTE\_G3, NOTE\_G3, NOTE\_R \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{/* }}
+\DoxyCodeLine{29 \textcolor{comment}{ * Function prototypes}}
+\DoxyCodeLine{30 \textcolor{comment}{ * set\_OC3A\_freq : takes a frequency and convert it into N to play the tone.}}
+\DoxyCodeLine{31 \textcolor{comment}{ * Task1() turns on a LED for 250ms, turns off for 750ms and repeat.}}
+\DoxyCodeLine{32 \textcolor{comment}{ * Task2() plays 13 different tones 200ms each and stops for 4 seconds and plays agin. }}
+\DoxyCodeLine{33 \textcolor{comment}{*/}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keywordtype}{void} \mbox{\hyperlink{_demo1_8ino_a520643fae9a5bb426c0c6d4affa68a01}{set\_OC3A\_freq}}(uint32\_t freq);}
+\DoxyCodeLine{36 \textcolor{keywordtype}{void} \mbox{\hyperlink{_demo1_8ino_a981008700b24339f2f3510a01188a336}{Task1}}();}
+\DoxyCodeLine{37 \textcolor{keywordtype}{void} \mbox{\hyperlink{_demo1_8ino_a48ca17e52cd2a385f36d93d00e135083}{Task2}}();}
+
+\end{DoxyCode}

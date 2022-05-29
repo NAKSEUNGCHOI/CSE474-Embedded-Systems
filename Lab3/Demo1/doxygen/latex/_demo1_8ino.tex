@@ -1,0 +1,151 @@
+\hypertarget{_demo1_8ino}{}\doxysection{Demo1/\+Demo1.ino File Reference}
+\label{_demo1_8ino}\index{Demo1/Demo1.ino@{Demo1/Demo1.ino}}
+
+
+Task1 and Task2 concurrently using basic Round Robin(\+RR) scheduler.  
+
+
+{\ttfamily \#include \char`\"{}RR.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_demo1_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Initialize all registers for CTC LED, and speaker. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_demo1_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em call Task1 and Task2 infinitely every 1ms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_demo1_8ino_a520643fae9a5bb426c0c6d4affa68a01}{set\+\_\+\+OC3\+A\+\_\+freq}} (uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em This function takes a frequency and convert it to N. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_demo1_8ino_a981008700b24339f2f3510a01188a336}{Task1}} ()
+\begin{DoxyCompactList}\small\item\em Flash an external LED for one second. (one for 250ms and off for 750ms) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_demo1_8ino_a48ca17e52cd2a385f36d93d00e135083}{Task2}} ()
+\begin{DoxyCompactList}\small\item\em Task2 is to make a speaker emit a theme called \char`\"{}\+Close Encounters of the Third Kind.\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_demo1_8ino_adb7a760512715e86f925f8a8d4a15ba8}\label{_demo1_8ino_adb7a760512715e86f925f8a8d4a15ba8}} 
+int {\bfseries reset} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Task1 and Task2 concurrently using basic Round Robin(\+RR) scheduler. 
+
+\begin{DoxyAuthor}{Author}
+Nakseung Choi 1572578 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8-\/May-\/2021
+\end{DoxyDate}
+@\+Description Task1 is to flash an external LED for 250ms every one second. Task2 is to make the speaker emit a theme called \char`\"{}\+Close Encounters of the Third Kind,\char`\"{} using hardware timer technique. Task2 plays the theme, sleep for 4 seconds, and then play the theme again. In this lab 3, I learned to implement three schedulers(basic RR, SRRI, and DDS) for a variable number of tasks. Note that these schedulers are not pre-\/emptive. For this demo, I implemented the basic RR to run two tasks in order. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_demo1_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_demo1_8ino_afe461d27b9c48d5921c00d521181f12f}} 
+\index{Demo1.ino@{Demo1.ino}!loop@{loop}}
+\index{loop@{loop}!Demo1.ino@{Demo1.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+call Task1 and Task2 infinitely every 1ms. 
+
+\mbox{\hyperlink{_demo1_8ino_afe461d27b9c48d5921c00d521181f12f}{loop()}} 
+\begin{DoxyParams}{Parameters}
+{\em Task1} & flash an external LED for 250ms every one second. \\
+\hline
+{\em Task2} & make the speaker emit a theme called \char`\"{}\+Close Encounters of the Third Kind.\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_demo1_8ino_a520643fae9a5bb426c0c6d4affa68a01}\label{_demo1_8ino_a520643fae9a5bb426c0c6d4affa68a01}} 
+\index{Demo1.ino@{Demo1.ino}!set\_OC3A\_freq@{set\_OC3A\_freq}}
+\index{set\_OC3A\_freq@{set\_OC3A\_freq}!Demo1.ino@{Demo1.ino}}
+\doxysubsubsection{\texorpdfstring{set\_OC3A\_freq()}{set\_OC3A\_freq()}}
+{\footnotesize\ttfamily void set\+\_\+\+OC3\+A\+\_\+freq (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{freq }\end{DoxyParamCaption})}
+
+
+
+This function takes a frequency and convert it to N. 
+
+\mbox{\hyperlink{_demo1_8ino_a520643fae9a5bb426c0c6d4affa68a01}{set\+\_\+\+OC3\+A\+\_\+freq(uint32\+\_\+t freq)}} 
+\begin{DoxyParams}{Parameters}
+{\em PRE\+\_\+\+SCALE} & = OCR3A is an output compare register. This takes N to generate a certain tone for a set time. N can be calculated using this formula\+:\\
+\hline
+\end{DoxyParams}
+System Clock = 16Mhz, 62.\+5ns per tick. With a pre-\/scale of 8, 16Mhz / 8 = 2MHz 2,000,000 / (2$\ast$desired frequency) = N 
+\begin{DoxyParams}{Parameters}
+{\em freq} & this is a frequency defined as an unsigned 32-\/bit int. \\
+\hline
+{\em TCNT4\+\_\+\+COUTER} & Set this to be equal to 0 so that counting starts at 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Tones can be changed based on pre-\/scaling setup. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{_demo1_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_demo1_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{Demo1.ino@{Demo1.ino}!setup@{setup}}
+\index{setup@{setup}!Demo1.ino@{Demo1.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize all registers for CTC LED, and speaker. 
+
+\mbox{\hyperlink{_demo1_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} 
+\begin{DoxyParams}{Parameters}
+{\em SYSTEM\+\_\+\+REG\+\_\+A} & TCCR3A \\
+\hline
+{\em SYSTEM\+\_\+\+REG\+\_\+B} & TCCR3B \\
+\hline
+{\em PRE\+\_\+\+SCALE} & Set OCR3A to 0 ~\newline
+ \\
+\hline
+{\em TCNT4\+\_\+\+COUNTER} & initialize TCNT4 to be 0. \\
+\hline
+{\em SPEAKER\+\_\+\+DDRE} & Enable DDE3 (PIN 5) \\
+\hline
+{\em SPEAKER\+\_\+\+PORTE} & Enable PIN5 to be an output mode. \\
+\hline
+{\em LED\+\_\+\+DDR} & Enable PIN47 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_demo1_8ino_a981008700b24339f2f3510a01188a336}\label{_demo1_8ino_a981008700b24339f2f3510a01188a336}} 
+\index{Demo1.ino@{Demo1.ino}!Task1@{Task1}}
+\index{Task1@{Task1}!Demo1.ino@{Demo1.ino}}
+\doxysubsubsection{\texorpdfstring{Task1()}{Task1()}}
+{\footnotesize\ttfamily void Task1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Flash an external LED for one second. (one for 250ms and off for 750ms) 
+
+\mbox{\hyperlink{_demo1_8ino_a981008700b24339f2f3510a01188a336}{Task1()}} 
+\begin{DoxyParams}{Parameters}
+{\em time} & This is the time variable in the function that controls how long an LED flash. \\
+\hline
+{\em LED\+\_\+\+PORT} & Enable PORTL as an output mode. ~\newline
+ \\
+\hline
+{\em LED\+\_\+\+DURATION} & is 250ms, which is the time that LED will remain ON. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_demo1_8ino_a48ca17e52cd2a385f36d93d00e135083}\label{_demo1_8ino_a48ca17e52cd2a385f36d93d00e135083}} 
+\index{Demo1.ino@{Demo1.ino}!Task2@{Task2}}
+\index{Task2@{Task2}!Demo1.ino@{Demo1.ino}}
+\doxysubsubsection{\texorpdfstring{Task2()}{Task2()}}
+{\footnotesize\ttfamily void Task2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Task2 is to make a speaker emit a theme called \char`\"{}\+Close Encounters of the Third Kind.\char`\"{}. 
+
+\mbox{\hyperlink{_demo1_8ino_a48ca17e52cd2a385f36d93d00e135083}{Task2()}} 
+\begin{DoxyParams}{Parameters}
+{\em time} & This is the time variable in the function that controls how long each tone plays. \\
+\hline
+{\em LED\+\_\+\+PORT} & Enable PORTL as an output mode. ~\newline
+ \\
+\hline
+{\em TONE\+\_\+\+DURATION} & is 200ms, which is the time that it plays each tone for. \\
+\hline
+\end{DoxyParams}
