@@ -1,9 +1,8 @@
 # UW CSE 474 Embedded Systems.
 
-University of Washington
-Spring 2022 
-Prof. Vikram Iyer.
-Nakseung Choi 
+* University of Washington Spring 2022 
+* Prof. Vikram Iyer.
+* Nakseung Choi 
 
 ## Description
 
@@ -26,8 +25,8 @@ https://www.linkedin.com/in/nakseung-choi-090a1b69/
 
 ## Version History
 
-* 0.1
-    * Initial Release
+* Final Release 6/01/2022
+* Initial Release 5/13/2022
 
 ## License
 
