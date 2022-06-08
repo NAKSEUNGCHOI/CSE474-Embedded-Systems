@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # UW CSE 474 Embedded Systems.
 
 * University of Washington
@@ -32,3 +33,7 @@ https://www.linkedin.com/in/nakseung-choi-090a1b69/
 ## License
 
 @ All copyright Nakseung Choi.
+=======
+# Embedded-Systems
+CSE474 Embedded Systems spr 2022
+>>>>>>> 772f60c (Initial commit)
