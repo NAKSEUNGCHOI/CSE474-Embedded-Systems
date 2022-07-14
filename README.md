@@ -25,7 +25,7 @@ https://www.linkedin.com/in/nakseung-choi-090a1b69/
 
 ## Release Notes
 
-* <pre>Final Release            6/01/2022<pre/>
+* <pre>Final Release                 6/01/2022<pre/>
 * <pre>Initial Release               5/13/2022<pre/>
 
 ## License
