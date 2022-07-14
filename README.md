@@ -23,10 +23,10 @@ These are all the labs and assignments for UW CSE 474 Embedded Systems Course.
 Nakseung Choi
 https://www.linkedin.com/in/nakseung-choi-090a1b69/
 
-## Version History
+## Release Notes
 
-* Final Release 6/01/2022
-* Initial Release 5/13/2022
+* <pre>Final Release            6/01/2022<pre/>
+* <pre>Initial Release               5/13/2022<pre/>
 
 ## License
 
